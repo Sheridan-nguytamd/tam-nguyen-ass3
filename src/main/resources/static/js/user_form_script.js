@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     throw new Error('Failed to submit user');
                 }
                 console.log('User submitted successfully');
-                window.location.href = '/'; // Redirect to the home page
+                window.location.href = '/';
             })
             .catch(error => {
                 console.error('Error submitting user:', error);

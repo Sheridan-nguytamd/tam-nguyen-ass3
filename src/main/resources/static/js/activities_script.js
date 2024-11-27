@@ -31,9 +31,5 @@ document.addEventListener('DOMContentLoaded', function () {
                 console.log('Failed to load activities');
             });
     }
-
-    
     loadActivities();
-
-   
 });
