@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Add Activity</title>
+    <script src="../static/js/activity_form_script.js" th:src="@{/js/activity_form_script.js}"></script>
+    <link rel="stylesheet" type="text/css" href="../static/css/styles.css" th:href="@{/css/styles.css}" />
+</head>
+<body>
+    <h1>Add New Activity</h1>
+
+    <!-- Form to Add Activity -->
+    <form id="activityForm">
+        <label>Activity Type: <input type="text" name="activityType" required></label><br>
+        <label>Duration (mins): <input type="number" name="duration" required></label><br>
+        <label>Calories Burned: <input type="number" name="caloriesBurned" required></label><br>
+        <button type="submit">Add Activity</button>
+    </form>
+
+    <hr>
+    <nav><a th:href="@{/}">Back to Home Page</a></nav>
+    
+</body>
+</html>

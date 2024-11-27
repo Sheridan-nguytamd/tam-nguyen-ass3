@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Users Page</title>
+<script src="../static/js/user_script.js" th:src="@{/js/user_script.js}"></script>
+<link rel="stylesheet" type="text/css" href="../static/css/styles.css"
+	th:href="@{/css/styles.css}" />
+</head>
+<body>
+	<h1>Users</h1>
+	<table border="1">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Name</th>
+				<th>Email</th>
+				<th>Age</th>
+				<th>Gender</th>
+				<th>Weight</th>
+				<th>Height</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="user : ${userList}">
+				<td th:text="${user.id}">1</td>
+				<td th:text="${user.name}">Tam</td>
+				<td th:text="${user.email}">tam@example.com</td>
+				<td th:text="${user.age}">19</td>
+				<td th:text="${user.gender}">Male</td>
+				<td th:text="${user.weight}">73</td>
+				<td th:text="${user.height}">175</td>
+				<td><a th:href="@{/activities(userId=${user.id})}">View Activities</a></td>
+			</tr>
+		</tbody>
+	</table>
+
+	
+	<div id="userActivities"></div>
+	
+	<br>
+	<nav>
+		<a th:href="@{/user}">Add Users</a>
+	</nav>
+</body>
+</html>

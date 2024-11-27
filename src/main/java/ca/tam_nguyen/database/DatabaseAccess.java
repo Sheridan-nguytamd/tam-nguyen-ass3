@@ -31,6 +31,7 @@ public class DatabaseAccess {
 	public User findUserById(Long id) {
 		MapSqlParameterSource namedParameter = new MapSqlParameterSource();
 		String query = "SELECT * FROM users WHERE id = :id";
+		namedParameter.addValue("id", id);
 		return jdbc.queryForObject(query, namedParameter,
 				new BeanPropertyRowMapper<>(User.class));
 	}
@@ -53,7 +54,7 @@ public class DatabaseAccess {
 	public void updateUser(User user) {
 		MapSqlParameterSource namedParameter = new MapSqlParameterSource();
 		String query = "UPDATE users SET name=:name, email=:email, age=:age, " +
-					"gender=:gender, weight=:weight, height=: height WHERE id=:id";
+					"gender=:gender, weight=:weight, height=:height WHERE id=:id";
 		namedParameter.addValue("id", user.getId());
 		namedParameter.addValue("name", user.getName());
 		namedParameter.addValue("email", user.getEmail());
@@ -76,12 +77,14 @@ public class DatabaseAccess {
 	public List<Activity> findActivityByUserId(Long userId) {
 		MapSqlParameterSource namedParameter = new MapSqlParameterSource();
 		String query = "SELECT * FROM activity WHERE userId = :userId";
+		namedParameter.addValue("userId", userId);
 		return jdbc.query(query, namedParameter, new BeanPropertyRowMapper<>(Activity.class));
 	}
 	
 	public Activity findActivityById(Long id) {
 		MapSqlParameterSource namedParameter = new MapSqlParameterSource();
 		String query = "SELECT * FROM activity WHERE id = :id";
+		namedParameter.addValue("id", id);
 		return jdbc.queryForObject(query, namedParameter, new BeanPropertyRowMapper<>(Activity.class));
 	}
 	

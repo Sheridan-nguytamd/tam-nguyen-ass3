@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>User Activities</title>
+    <script src="../static/js/activities_script.js" th:src="@{/js/activities_script.js}"></script>
+    <link rel="stylesheet" type="text/css" href="../static/css/styles.css" th:href="@{/css/styles.css}" />
+</head>
+<body>
+    <h1>User Activities</h1>
+
+    <h2>Activity Logs</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Activity Type</th>
+                <th>Duration (mins)</th>
+                <th>Calories Burned</th>
+                <th>Activity Date</th>
+            </tr>
+        </thead>
+        
+        <tbody id="activitiesTableBody">
+        <!-- js file -->
+        </tbody>
+        
+    </table>
+
+    <hr>
+	<nav>
+    <a th:href="@{/activityForm(userId=${userId})}">Add Activity</a>
+
+    <a th:href="@{/}">Back to Home Page</a>
+	</nav>
+    
+</body>
+</html>

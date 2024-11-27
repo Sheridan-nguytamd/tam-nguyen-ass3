@@ -3,6 +3,7 @@ package ca.tam_nguyen.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -39,7 +40,7 @@ public class UserController {
 	
 	@PostMapping(consumes = "application/json")
 	public String postUser(@RequestBody User user) {
-		return "http://localhost:8080/api/users/" + da.saveUser(user);
+		return "User added with ID " + da.saveUser(user);
 	}
 	
 	// PUT Method by ID
@@ -49,12 +50,27 @@ public class UserController {
 		User existingUser = da.findUserById(id);
 		if (existingUser != null) {
 			existingUser.setName(user.getName());
+			existingUser.setEmail(user.getEmail());
+			existingUser.setAge(user.getAge());
+			existingUser.setGender(user.getGender());
+			existingUser.setWeight(user.getWeight());
+			existingUser.setHeight(user.getHeight());
 			da.updateUser(existingUser);
 			return "User updated";
 		} else {
-			return "Student not found";
+			return "User not found";
 		}
 	}
 	
-	// DELETE 
+	// DELETE user by ID
+	@DeleteMapping(value = "/{id}")
+	public String deleteUserById(@PathVariable("id") Long id) {
+		User user = da.findUserById(id);
+		if (user != null) {
+			da.deleteUser(id);
+			return "User deleted";
+		}
+		return "User not found";
+	}
+	
 }

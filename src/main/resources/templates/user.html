@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>User Form</title>
+<script src="../static/js/user_form_script.js" th:src="@{/js/user_form_script.js}"></script>
+<link rel="stylesheet" type="text/css"
+	href="../static/css/styles.css" th:href="@{/css/styles.css}" />
+</head>
+<body>
+	<h1>Add New Users</h1>
+	<form id="userForm">
+		<label>Name: <input type="text" name="name" required></label><br>
+		<label>Email: <input type="email" name="email" required></label><br>
+		<label>Age: <input type="number" name="age" required></label><br>
+		<label>Gender:
+			<select name="gender">
+				<option value="Male">Male</option>
+				<option value="Female">Female</option>
+			</select>
+		</label><br>
+		<label>Weight: <input type="number" name="weight" required></label><br>
+		<label>Height: <input type="text" name="height" required></label><br>
+		<button type="submit">Submit</button>
+	</form>
+
+</body>
+</html>
